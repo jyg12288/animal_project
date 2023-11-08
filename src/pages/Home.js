@@ -1,7 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
-  return <div></div>;
+  const [loginState, setLoginState] = useState(false);
+  return (
+    <div className="main">
+      <header className="header">
+        <h1 className="header__logo">
+          <img src="/assets/home/로고.png" alt="logo" />
+        </h1>
+        <Link to="/hospital" className="header__link">
+          <img src="/assets/home/병원 로고.png" alt="hplogo" />
+        </Link>
+      </header>
+      <section className="container">
+        <h1 className="hidden">홈</h1>
+        <setion className="container__walk">
+          <h1 className="hidden">강아지 산책 정보</h1>
+          {!loginState ? (
+            <article className="login-container">
+              <h2>로그인 해주세요.</h2>
+              <button type="button">로그인</button>
+            </article>
+          ) : (
+            <article className="walk__info">
+              <div className="img-container">
+                <img src="/assets/home/강아지 아이콘.png" alt="" />
+              </div>
+              <span>강아지 산책을 안한지 20시간이 지났어요!</span>
+            </article>
+          )}
+        </setion>
+        <setion className="container__course">
+          <h1 className="course__title">오늘의 산책 코스 추천</h1>
+          <article className="course__info">
+            <div className="img-container">
+              <img src="/assets/home/동탄여울공원.png" alt="동탄여울공원" />
+            </div>
+            <div className="info-detail">
+              <span>소요 시간 | 30분</span>
+              <span>이동 거리 | 1.4km</span>
+            </div>
+          </article>
+        </setion>
+        <setion className="container__community">
+          <h1 className="community__title">오늘의 인기 일상 글</h1>
+          <article className="community__info">
+            <div className="img-container">
+              <img src="커뮤니티 첨부 사진" alt="커뮤니티 첨부 사진" />
+            </div>
+            <div className="profile-container">
+              <div className="img-container">
+                <img src="프로필 사진" alt="사용자이름" />
+              </div>
+              <span>사용자이름</span>
+            </div>
+            <div className="content">
+              <span>커뮤니티 내용</span>
+            </div>
+          </article>
+        </setion>
+      </section>
+    </div>
+  );
 }
 
 export default Home;
