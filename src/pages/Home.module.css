@@ -96,3 +96,59 @@
   font-weight: 400;
   padding: 26px 0 0 10px;
 }
+
+/*walk course*/
+.container__course {
+    display: block;
+    width: 100%;
+    margin-top: 19px;
+}
+
+.course__title {
+    display: block;
+    font-family: Noto Sans KR;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.course__info {
+    margin-top: 9px;
+}
+
+.course__info > .img_container > img {
+    width: 100%;
+    position: relative;
+    border-radius: 10px 10px 0 0;
+    display: block;
+}
+
+.info_detail {
+    width: 100%;
+    height: 42px;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    background: #f3f3f3;
+    padding-top: 10px;
+    display: block;
+    padding-left: 12px;
+}
+
+.info_detail > span {
+    color: #171717;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 10px 10px 0px 0px;
+}
+
+/* cummunity */
+.community__title {
+    display: block;
+    font-family: Noto Sans KR;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+}

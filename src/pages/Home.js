@@ -32,20 +32,20 @@ function Home() {
             </article>
           )}
         </setion>
-        <setion className="container__course">
-          <h1 className="course__title">오늘의 산책 코스 추천</h1>
-          <article className="course__info">
-            <div className="img-container">
+        <setion className={styles.container__course}>
+          <h1 className={styles.course__title}>오늘의 산책 코스 추천</h1>
+          <article className={styles.course__info}>
+            <div className={styles.img_container}>
               <img src="/assets/home/동탄여울공원.png" alt="동탄여울공원" />
             </div>
-            <div className="info-detail">
+            <div className={styles.info_detail}>
               <span>소요 시간 | 30분</span>
               <span>이동 거리 | 1.4km</span>
             </div>
           </article>
         </setion>
-        <setion className="container__community">
-          <h1 className="community__title">오늘의 인기 일상 글</h1>
+        <setion className={styles.container__community}>
+          <h1 className={styles.community__title}>오늘의 인기 일상 글</h1>
           <article className="community__info">
             <div className="img-container">
               <img src="커뮤니티 첨부 사진" alt="커뮤니티 첨부 사진" />
