@@ -3,29 +3,29 @@ import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 
 function Home() {
-  const [loginState, setLoginState] = useState(false);
+  const [loginState, setLoginState] = useState(true);
   return (
     <div className="main">
-      <header className="header">
-        <h1 className="header__logo">
+      <header className={styles.header}>
+        <h1 className={styles.header__logo}>
           <img src="/assets/home/로고.png" alt="logo" />
         </h1>
-        <Link to="/hospital" className="header__link">
+        <Link to="/hospital" className={styles.header__link}>
           <img src="/assets/home/병원 로고.png" alt="hplogo" />
         </Link>
       </header>
-      <section className="container">
+      <section className={styles.container}>
         <h1 className="hidden">홈</h1>
-        <setion className="container__walk">
+        <setion className={styles.container__walk}>
           <h1 className="hidden">강아지 산책 정보</h1>
           {!loginState ? (
-            <article className="login-container">
+            <article className={styles.login_container}>
               <h2>로그인 해주세요.</h2>
               <button type="button">로그인</button>
             </article>
           ) : (
-            <article className="walk__info">
-              <div className="img-container">
+            <article className={styles.walk__info}>
+              <div className={styles.img_container}>
                 <img src="/assets/home/강아지 아이콘.png" alt="" />
               </div>
               <span>강아지 산책을 안한지 20시간이 지났어요!</span>

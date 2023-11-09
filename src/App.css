@@ -1,9 +1,13 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing :border-box;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
 }
 
 .App {
-  padding : 0 20px;
+  padding: 0 20px;
 }
