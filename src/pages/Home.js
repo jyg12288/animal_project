@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 
 function Home() {
-  const [loginState, setLoginState] = useState(true);
+  const [loginState, setLoginState] = useState(false);
   return (
     <div className="main">
       <header className={styles.header}>
         <h1 className={styles.header__logo}>
-          <img src="/assets/home/로고.png" alt="logo" />
+          <img src="/assets/로고.png" alt="logo" />
         </h1>
         <Link to="/hospital" className={styles.header__link}>
           <img src="/assets/home/병원 로고.png" alt="hplogo" />
@@ -16,12 +16,14 @@ function Home() {
       </header>
       <section className={styles.container}>
         <h1 className="hidden">홈</h1>
-        <setion className={styles.container__walk}>
+        <section className={styles.container__walk}>
           <h1 className="hidden">강아지 산책 정보</h1>
           {!loginState ? (
             <article className={styles.login_container}>
               <h2>로그인 해주세요.</h2>
-              <button type="button">로그인</button>
+              <button type="button">
+                <Link to="/login">로그인</Link>
+              </button>
             </article>
           ) : (
             <article className={styles.walk__info}>
@@ -31,8 +33,8 @@ function Home() {
               <span>강아지 산책을 안한지 20시간이 지났어요!</span>
             </article>
           )}
-        </setion>
-        <setion className={styles.container__course}>
+        </section>
+        <section className={styles.container__course}>
           <h1 className={styles.course__title}>오늘의 산책 코스 추천</h1>
           <article className={styles.course__info}>
             <div className={styles.img_container}>
@@ -43,8 +45,8 @@ function Home() {
               <span>이동 거리 | 1.4km</span>
             </div>
           </article>
-        </setion>
-        <setion className={styles.container__community}>
+        </section>
+        <section className={styles.container__community}>
           <h1 className={styles.community__title}>오늘의 인기 일상 글</h1>
           <article className="community__info">
             <div className="img-container">
@@ -60,7 +62,7 @@ function Home() {
               <span>커뮤니티 내용</span>
             </div>
           </article>
-        </setion>
+        </section>
       </section>
     </div>
   );
