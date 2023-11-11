@@ -6,7 +6,7 @@ function Login() {
   return (
     <div className="main">
       <header className={styles.header}>
-        <h1 className={styles.img_container}>
+        <h1 className={styles.header__title}>
           <img src="/assets/로고.png" alt="logo" />
         </h1>
       </header>
@@ -17,7 +17,7 @@ function Login() {
         </article>
         <button type="button">로그인</button>
       </section>
-      <span className={styles.resgistration_notice}>
+      <span className={styles.registration_notice}>
         아직 가입하지 않으셨다면 <Link to="/registration">회원가입</Link>
       </span>
     </div>
