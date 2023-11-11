@@ -166,7 +166,7 @@
 }
 
 .community__info {
-    margin-top: 9px;
+  margin-top: 9px;
 }
 
 .slide > .img_container > img {
@@ -184,11 +184,11 @@
   width: 100%;
 }
 
-.profile_container > .img_container { 
+.profile_container > .img_container {
   height: 42px;
   width: 42px;
   border-radius: 10px;
-  border: 0.5px solid #F2F2F2;
+  border: 0.5px solid #f2f2f2;
   margin: 7px;
   overflow: hidden;
 }
@@ -209,76 +209,71 @@
 
 .content {
   width: 100%;
-    height: 42px;
-    border-radius: 0 0 10px 10px;
-    position: relative;
-    background: #f3f3f3;
-    padding-top: 6px;
-    display: block;
-    padding: 10px 0 0 12px;
-
+  height: 42px;
+  border-radius: 0 0 10px 10px;
+  position: relative;
+  background: #f3f3f3;
+  padding-top: 6px;
+  display: block;
+  padding: 10px 0 0 12px;
 }
 
 .content > span {
-    color: #171717;
-    font-family: Noto Sans KR;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #171717;
+  font-family: Noto Sans KR;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 /* slider */
 .slider {
-    position: relative;
-    overflow: hidden;
-    
-    width: 100%;
-    height: 400px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+
+  animation: slider 7.5s infinite linear;
+}
+
+.slide:nth-child(1) {
+  animation-delay: 0;
+}
+.slide:nth-child(2) {
+  animation-delay: -2.5s;
+}
+.slide:nth-child(3) {
+  animation-delay: -5s;
+}
+
+@keyframes slider {
+  0% {
+    transform: translateX(0);
   }
-  
-  .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-  
-    animation: slider 7.5s infinite linear;
+
+  26% {
+    transform: translateX(0);
   }
-  
-  
-  .slide:nth-child(1) {
-    animation-delay: 0;
+  33% {
+    transform: translateX(-100%);
+    animation-timing-function: step-end;
   }
-  .slide:nth-child(2) {
-    animation-delay: -2.5s;
+  93% {
+    transform: translateX(100%);
   }
-  .slide:nth-child(3) {
-    animation-delay: -5s;
+
+  100% {
+    transform: translateX(0);
   }
-  
-  
-  @keyframes slider {
-    0% {
-      transform: translateX(0);
-    }
-  
-    26% {
-      transform: translateX(0);
-    }
-    33% {
-      transform: translateX(-100%);
-      animation-timing-function: step-end;
-    }
-    93% {
-      transform: translateX(100%);
-    }
-  
-    100% {
-      transform: translateX(0);
-    }
-  }
-  
+}

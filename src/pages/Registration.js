@@ -16,7 +16,7 @@ function Registration() {
   };
 
   return (
-    <div className="main">
+    <div className={styles.main}>
       <header className={styles.header}>
         <div className={styles.header__previous_icon}>
           <img src="/assets/뒤로가기.png" alt="Go to previous page" />
@@ -108,24 +108,27 @@ function Registration() {
             </div>
             <div className={styles.item}>
               <label htmlFor="id">닉네임</label>
-
-              <input
-                type="text"
-                placeholder="닉네임 입력"
-                aria-invalid={
-                  isSubmitted ? (errors.nick ? "true" : "false") : undefined
-                }
-                {...register("nick", {
-                  required: "닉네임은 필수 입력입니다.",
-                  maxLength: {
-                    value: 10,
-                    message: "10자리 이하 닉네임을 사용해주세요.",
-                  },
-                })}
-              />
-              {errors.nick && (
-                <span className={styles.error_msg}>{errors.nick.message}</span>
-              )}
+              <div>
+                <input
+                  type="text"
+                  placeholder="닉네임 입력"
+                  aria-invalid={
+                    isSubmitted ? (errors.nick ? "true" : "false") : undefined
+                  }
+                  {...register("nick", {
+                    required: "닉네임은 필수 입력입니다.",
+                    maxLength: {
+                      value: 10,
+                      message: "10자리 이하 닉네임을 사용해주세요.",
+                    },
+                  })}
+                />
+                {errors.nick && (
+                  <span className={styles.error_msg}>
+                    {errors.nick.message}
+                  </span>
+                )}
+              </div>
             </div>
 
             <button
