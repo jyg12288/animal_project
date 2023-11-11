@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Registration.module.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Registration() {
   const [password, setPassword] = useState("");
+  const [lon, setLon] = useState("");
+  const [lat, setLat] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -17,10 +21,39 @@ function Registration() {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLat(position.coords.latitude);
+      setLon(position.coords.longitude);
+    });
+
+    // axios
+    //   .get(
+    //     `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lat}&y=${lon}`,
+    //     {
+    //       headers: {
+    //         Authorization: `KakaoAK ${process.env.REACT_APP_KAKAO_REST_API_KEY}`,
+    //       },
+    //     }
+    //   )
+    //   .then((result) => {
+    //     //법정동 기준으로 동단위의 값을 가져온다
+    //     let location = result.documents[0].region_3depth_name;
+    //     console.log(location);
+    //   });
+  }, []);
+
+  console.log(lat);
+
   return (
     <div className={styles.main}>
       <header className={styles.header}>
-        <button className={styles.header__previous_icon} onClick={ () => {navigate(-1)}}>
+        <button
+          className={styles.header__previous_icon}
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
           <img src="/assets/뒤로가기.png" alt="Go to previous page" />
         </button>
         <h1 className={styles.header__title}>회원가입</h1>
