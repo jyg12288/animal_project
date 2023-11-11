@@ -11,8 +11,8 @@
 }
 
 .App {
-   width: 100%
-  }
+  width: 100%;
+}
 
 h1,
 h2,
@@ -26,7 +26,8 @@ p,
 a,
 li,
 input,
-button {
+button,
+label {
   font-family: "Noto Sans KR", sans-serif;
   color: #171717;
 }
