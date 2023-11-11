@@ -38,9 +38,6 @@ function Registration() {
           <form onSubmit={handleSubmit(submitForm)} className={styles.items}>
             <div className={styles.item}>
               <label htmlFor="id">아이디</label>
-              {errors.id && (
-                <span className={styles.error_msg}>{errors.id.message}</span>
-              )}
               <input
                 type="text"
                 placeholder="아이디 입력"
@@ -60,6 +57,9 @@ function Registration() {
                 })}
               />
               <span className={styles.id_warning_msg}>중복 불가능</span>
+              {errors.id && (
+                <span className={styles.error_msg}>{errors.id.message}</span>
+              )}
             </div>
             <div className={styles.item}>
               <label htmlFor="id">비밀번호</label>
@@ -86,6 +86,14 @@ function Registration() {
                     pattern: {
                       value: new RegExp(`${password}`, "g"),
                       message: "비밀번호가 일치하지 않습니다.",
+                    },
+                    minLength: {
+                      value: 10,
+                      message: "10자리 이상 비밀번호를 사용하세요",
+                    },
+                    maxLength: {
+                      value: 20,
+                      message: "20자리 이하 비밀번호를 사용하세요",
                     },
                   })}
                 />
