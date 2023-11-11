@@ -13,6 +13,14 @@
   left: 0;
   height: 18px;
   margin-top: 20px;
+  background-color: transparent;
+  border-style: none;
+}
+
+.header__previous_icon > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .header__title {
@@ -21,7 +29,11 @@
   padding-top: 17px;
 }
 
-.profile_container {
+.container {
+    margin-top: 26px;
+}
+
+.container__profile {
   position: relative;
   width: 80px;
   height: 80px;
@@ -30,7 +42,7 @@
   margin-bottom: 35px;
 }
 
-.profile_container > button {
+.container__profile > label {
   position: absolute;
   bottom: -6px;
   right: -6px;
@@ -39,6 +51,11 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+
+.container__profile > input {
+    display: none;
+
 }
 
 .form__items {
@@ -77,4 +94,15 @@
 
 .error_msg {
   color: #b00;
+}
+
+.submit_btn {
+    width: 100%;
+    height: 45px;
+    background: #FF80AB;
+    color: #fff;
+    border-radius: 7px;
+    border-style: none;
+    margin-top: 165px;
+    font-size: 15px;
 }

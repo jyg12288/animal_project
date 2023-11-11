@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./Registration.module.css";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 function Registration() {
   const [password, setPassword] = useState("");
-  console.log(password);
   const {
     register,
     handleSubmit,
@@ -15,24 +15,26 @@ function Registration() {
     console.log(data);
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className={styles.main}>
       <header className={styles.header}>
-        <div className={styles.header__previous_icon}>
+        <button className={styles.header__previous_icon} onClick={ () => {navigate(-1)}}>
           <img src="/assets/뒤로가기.png" alt="Go to previous page" />
-        </div>
+        </button>
         <h1 className={styles.header__title}>회원가입</h1>
       </header>
       <section className={styles.container}>
-        <article className={styles.profile_container}>
+        <article className={styles.container__profile}>
           <img src="/assets/registration/프로필사진예시.png" alt="" />
-          <button type="button">
+          <label htmlFor="file">
             <img
               src="/assets/registration/사진 첨부 아이콘.png"
               alt="Attach button"
             />
-          </button>
-          <input type="file" />
+          </label>
+          <input type="file" id="file" />
         </article>
         <form
           onSubmit={handleSubmit(submitForm)}
