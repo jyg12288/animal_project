@@ -48,19 +48,51 @@ function Home() {
         </section>
         <section className={styles.container__community}>
           <h1 className={styles.community__title}>오늘의 인기 일상 글</h1>
-          <article className="community__info">
-            <div className="img-container">
-              <img src="커뮤니티 첨부 사진" alt="커뮤니티 첨부 사진" />
-            </div>
-            <div className="profile-container">
-              <div className="img-container">
-                <img src="프로필 사진" alt="사용자이름" />
+          <article className={styles.community__info}>
+            <div class={styles.slider}>
+              <div class={styles.slide}>
+                <div className={styles.img_container}>
+                  <img src="/assets/home/동탄여울공원.png" alt="커뮤니티 첨부 사진" />
+                </div>
+                <div className={styles.profile_container}>
+                  <div className={styles.img_container}>
+                    <img src="/assets/home/임시프로필.png" alt="사용자이름" />
+                  </div>
+                  <span>사용자이름</span>
+                </div>
+                <div className={styles.content}>
+                  <span>커뮤니티 내용</span>
+                </div>
               </div>
-              <span>사용자이름</span>
-            </div>
-            <div className="content">
-              <span>커뮤니티 내용</span>
-            </div>
+              <div class={styles.slide}>
+                <div className={styles.img_container}>
+                  <img src="/assets/home/동탄여울공원.png" alt="커뮤니티 첨부 사진" />
+                </div>
+                <div className={styles.profile_container}>
+                  <div className={styles.img_container}>
+                    <img src="/assets/home/임시프로필.png" alt="사용자이름" />
+                  </div>
+                  <span>사용자이름</span>
+                </div>
+                <div className={styles.content}>
+                  <span>커뮤니티 내용</span>
+                </div>
+              </div>
+              <div class={styles.slide}>
+                <div className={styles.img_container}>
+                  <img src="/assets/home/동탄여울공원.png" alt="커뮤니티 첨부 사진" />
+                </div>
+                <div className={styles.profile_container}>
+                  <div className={styles.img_container}>
+                    <img src="/assets/home/임시프로필.png" alt="사용자이름" />
+                  </div>
+                  <span>사용자이름</span>
+                </div>
+                <div className={styles.content}>
+                  <span>커뮤니티 내용</span>
+                </div>
+              </div>
+            </div>          
           </article>
         </section>
       </section>
