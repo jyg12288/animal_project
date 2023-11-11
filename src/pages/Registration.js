@@ -27,20 +27,20 @@ function Registration() {
       setLon(position.coords.longitude);
     });
 
-    // axios
-    //   .get(
-    //     `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lat}&y=${lon}`,
-    //     {
-    //       headers: {
-    //         Authorization: `KakaoAK ${process.env.REACT_APP_KAKAO_REST_API_KEY}`,
-    //       },
-    //     }
-    //   )
-    //   .then((result) => {
-    //     //법정동 기준으로 동단위의 값을 가져온다
-    //     let location = result.documents[0].region_3depth_name;
-    //     console.log(location);
-    //   });
+  axios
+   .get(
+     `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lon}&y=${lat}`,
+     {
+       headers: {
+         Authorization: "KakaoAK 16f46b943650e8de93a8ad121d3575b1",
+       },
+      }
+    )
+   .then((result) => {
+     //법정동 기준으로 동단위의 값을 가져온다
+     let location = result.documents[0].region_3depth_name;
+     console.log(location);
+   });
   }, []);
 
   console.log(lat);
