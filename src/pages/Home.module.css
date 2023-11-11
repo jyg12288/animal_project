@@ -1,3 +1,7 @@
+.main {
+  padding: 0 20px;
+}
+
 .header {
   text-align: center;
   position: relative;
@@ -133,9 +137,8 @@
   border-radius: 0 0 10px 10px;
   position: relative;
   background: #f3f3f3;
-  padding-top: 10px;
   display: block;
-  padding-left: 12px;
+  padding: 10px 0 0 12px;
 }
 
 .info_detail > span {
@@ -149,6 +152,11 @@
 }
 
 /* cummunity */
+
+.container__community {
+  margin-top: 21px;
+}
+
 .community__title {
   display: block;
   font-family: Noto Sans KR;
@@ -157,17 +165,8 @@
   font-weight: 400;
 }
 
-.community_info {
-    color: #171717;
-    font-family: Noto Sans KR;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.slide > .img_container {
-  position: absolute;
+.community__info {
+    margin-top: 9px;
 }
 
 .slide > .img_container > img {
@@ -177,32 +176,47 @@
   display: block;
 }
 
-.profil_container {
-  position: relative;
-}
-
-.profile_container > .img_container {
+.profile_container {
+  display: flex;
   position: absolute;
-    display: inline-block;
+  top: 0;
+  height: 60px;
+  width: 100%;
 }
 
-.profile_container > .img_container > img {
-  margin: 7px;
+.profile_container > .img_container { 
   height: 42px;
   width: 42px;
   border-radius: 10px;
   border: 0.5px solid #F2F2F2;
+  margin: 7px;
+  overflow: hidden;
+}
+
+.profile_container > .img_container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile_container > span {
+  position: absolute;
+  top: 45%;
+  left: 57px;
+  transform: translateY(-50%);
+  font-size: 11px;
 }
 
 .content {
-    width: 100%;
+  width: 100%;
     height: 42px;
     border-radius: 0 0 10px 10px;
     position: relative;
     background: #f3f3f3;
-    padding-top: 10px;
+    padding-top: 6px;
     display: block;
-    padding-left: 12px;
+    padding: 10px 0 0 12px;
+
 }
 
 .content > span {
@@ -219,7 +233,7 @@
     position: relative;
     overflow: hidden;
     
-    width: 600px;
+    width: 100%;
     height: 400px;
   }
   
@@ -234,6 +248,7 @@
   
     animation: slider 7.5s infinite linear;
   }
+  
   
   .slide:nth-child(1) {
     animation-delay: 0;
@@ -266,3 +281,4 @@
       transform: translateX(0);
     }
   }
+  
