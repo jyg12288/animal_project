@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Login() {
   return (
-    <div className="main">
+    <div className={styles.main}>
       <header className={styles.header}>
         <h1 className={styles.header__title}>
           <img src="/assets/로고.png" alt="logo" />

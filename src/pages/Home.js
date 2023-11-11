@@ -5,7 +5,7 @@ import styles from "./Home.module.css";
 function Home() {
   const [loginState, setLoginState] = useState(false);
   return (
-    <div className="main">
+    <div className={styles.main}>
       <header className={styles.header}>
         <h1 className={styles.header__logo}>
           <img src="/assets/로고.png" alt="logo" />
@@ -41,16 +41,15 @@ function Home() {
               <img src="/assets/home/동탄여울공원.png" alt="동탄여울공원" />
             </div>
             <div className={styles.info_detail}>
-              <span>소요 시간 | 30분</span>
-              <span>이동 거리 | 1.4km</span>
+              <span>반려동물에게 자유와 즐거움을 주는 이곳!</span>
             </div>
           </article>
         </section>
         <section className={styles.container__community}>
           <h1 className={styles.community__title}>오늘의 인기 일상 글</h1>
           <article className={styles.community__info}>
-            <div class={styles.slider}>
-              <div class={styles.slide}>
+            <div className={styles.slider}>
+              <div className={styles.slide}>
                 <div className={styles.img_container}>
                   <img src="/assets/home/동탄여울공원.png" alt="커뮤니티 첨부 사진" />
                 </div>
@@ -64,7 +63,7 @@ function Home() {
                   <span>커뮤니티 내용</span>
                 </div>
               </div>
-              <div class={styles.slide}>
+              <div className={styles.slide}>
                 <div className={styles.img_container}>
                   <img src="/assets/home/동탄여울공원.png" alt="커뮤니티 첨부 사진" />
                 </div>
@@ -78,7 +77,7 @@ function Home() {
                   <span>커뮤니티 내용</span>
                 </div>
               </div>
-              <div class={styles.slide}>
+              <div className={styles.slide}>
                 <div className={styles.img_container}>
                   <img src="/assets/home/동탄여울공원.png" alt="커뮤니티 첨부 사진" />
                 </div>
