@@ -20,30 +20,27 @@ function Registration() {
   };
 
   const navigate = useNavigate();
-
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
-      setLat(position.coords.latitude);
-      setLon(position.coords.longitude);
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      axios
+        .get(
+          `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lon}&y=${lat}`,
+          {
+            headers: {
+              Authorization: `KakaoAK ${process.env.REACT_APP_KAKAO_API_KEY}`,
+            },
+          }
+        )
+        .then((result) => {
+          //법정동 기준으로 동단위의 값을 가져온다
+          let location = result.data.documents[0].region_3depth_name;
+          console.log(location);
+        });
     });
-
-    // axios
-    //   .get(
-    //     `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lat}&y=${lon}`,
-    //     {
-    //       headers: {
-    //         Authorization: `KakaoAK ${process.env.REACT_APP_KAKAO_REST_API_KEY}`,
-    //       },
-    //     }
-    //   )
-    //   .then((result) => {
-    //     //법정동 기준으로 동단위의 값을 가져온다
-    //     let location = result.documents[0].region_3depth_name;
-    //     console.log(location);
-    //   });
   }, []);
-
-  console.log(lat);
 
   return (
     <div className={styles.main}>
