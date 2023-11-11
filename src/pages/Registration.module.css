@@ -1,0 +1,38 @@
+.header {
+  position: relative;
+  text-align: center;
+}
+
+.header__previous_icon {
+  width: 10px;
+  position: absolute;
+  left: 0;
+  height: 18px;
+  margin-top: 20px;
+}
+
+.header__title {
+  font-size: 18px;
+  font-weight: normal;
+  padding-top: 17px;
+}
+
+.registration__profile {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 35px;
+}
+
+.registration__profile > button {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  background-color: transparent;
+  border-style: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}

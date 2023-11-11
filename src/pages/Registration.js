@@ -38,28 +38,30 @@ function Registration() {
           <form onSubmit={handleSubmit(submitForm)} className={styles.items}>
             <div className={styles.item}>
               <label htmlFor="id">아이디</label>
-              <input
-                type="text"
-                placeholder="아이디 입력"
-                aria-invalid={
-                  isSubmitted ? (errors.id ? "true" : "false") : undefined
-                }
-                {...register("id", {
-                  required: "아이디는 필수 입력입니다.",
-                  minLength: {
-                    value: 8,
-                    message: "8자리 이상 아이디를 사용하세요",
-                  },
-                  maxLength: {
-                    value: 15,
-                    message: "15자리 이하 아이디를 사용하세요",
-                  },
-                })}
-              />
-              <span className={styles.id_warning_msg}>중복 불가능</span>
-              {errors.id && (
-                <span className={styles.error_msg}>{errors.id.message}</span>
-              )}
+              <div>
+                <input
+                  type="text"
+                  placeholder="아이디 입력"
+                  aria-invalid={
+                    isSubmitted ? (errors.id ? "true" : "false") : undefined
+                  }
+                  {...register("id", {
+                    required: "아이디는 필수 입력입니다.",
+                    minLength: {
+                      value: 8,
+                      message: "8자리 이상 아이디를 사용하세요",
+                    },
+                    maxLength: {
+                      value: 15,
+                      message: "15자리 이하 아이디를 사용하세요",
+                    },
+                  })}
+                />
+                <span className={styles.id_warning_msg}>중복 불가능</span>
+                {errors.id && (
+                  <span className={styles.error_msg}>{errors.id.message}</span>
+                )}
+              </div>
             </div>
             <div className={styles.item}>
               <label htmlFor="id">비밀번호</label>

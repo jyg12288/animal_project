@@ -52,7 +52,10 @@ function Home() {
             <div class={styles.slider}>
               <div class={styles.slide}>
                 <div className={styles.img_container}>
-                  <img src="/assets/home/동탄여울공원.png" alt="커뮤니티 첨부 사진" />
+                  <img
+                    src="/assets/home/동탄여울공원.png"
+                    alt="커뮤니티 첨부 사진"
+                  />
                 </div>
                 <div className={styles.profile_container}>
                   <div className={styles.img_container}>
@@ -66,7 +69,10 @@ function Home() {
               </div>
               <div class={styles.slide}>
                 <div className={styles.img_container}>
-                  <img src="/assets/home/동탄여울공원.png" alt="커뮤니티 첨부 사진" />
+                  <img
+                    src="/assets/home/동탄여울공원.png"
+                    alt="커뮤니티 첨부 사진"
+                  />
                 </div>
                 <div className={styles.profile_container}>
                   <div className={styles.img_container}>
@@ -80,7 +86,10 @@ function Home() {
               </div>
               <div class={styles.slide}>
                 <div className={styles.img_container}>
-                  <img src="/assets/home/동탄여울공원.png" alt="커뮤니티 첨부 사진" />
+                  <img
+                    src="/assets/home/동탄여울공원.png"
+                    alt="커뮤니티 첨부 사진"
+                  />
                 </div>
                 <div className={styles.profile_container}>
                   <div className={styles.img_container}>
@@ -92,7 +101,7 @@ function Home() {
                   <span>커뮤니티 내용</span>
                 </div>
               </div>
-            </div>          
+            </div>
           </article>
         </section>
       </section>
