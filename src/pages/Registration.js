@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import styles from "./Registration.module.css";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import styles from './Registration.module.css';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Registration() {
-  const [password, setPassword] = useState("");
-  const [lon, setLon] = useState("");
-  const [lat, setLat] = useState("");
+  const [password, setPassword] = useState('');
+  const [lon, setLon] = useState('');
+  const [lat, setLat] = useState('');
 
   const {
     register,
@@ -20,30 +20,27 @@ function Registration() {
   };
 
   const navigate = useNavigate();
-
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
-      setLat(position.coords.latitude);
-      setLon(position.coords.longitude);
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      axios
+        .get(
+          `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lon}&y=${lat}`,
+          {
+            headers: {
+              Authorization: `KakaoAK ${process.env.REACT_APP_KAKAO_API_KEY}`,
+            },
+          }
+        )
+        .then((result) => {
+          //법정동 기준으로 동단위의 값을 가져온다
+          let location = result.data.documents[0].region_3depth_name;
+          console.log(location);
+        });
     });
-
-  axios
-   .get(
-     `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lon}&y=${lat}`,
-     {
-       headers: {
-         Authorization: "KakaoAK 16f46b943650e8de93a8ad121d3575b1",
-       },
-      }
-    )
-   .then((result) => {
-     //법정동 기준으로 동단위의 값을 가져온다
-     let location = result.documents[0].region_3depth_name;
-     console.log(location);
-   });
   }, []);
-
-  console.log(lat);
 
   return (
     <div className={styles.main}>
@@ -80,17 +77,17 @@ function Registration() {
                 type="text"
                 placeholder="아이디 입력"
                 aria-invalid={
-                  isSubmitted ? (errors.id ? "true" : "false") : undefined
+                  isSubmitted ? (errors.id ? 'true' : 'false') : undefined
                 }
-                {...register("id", {
-                  required: "아이디는 필수 입력입니다.",
+                {...register('id', {
+                  required: '아이디는 필수 입력입니다.',
                   minLength: {
                     value: 8,
-                    message: "8자리 이상 아이디를 사용하세요",
+                    message: '8자리 이상 아이디를 사용하세요',
                   },
                   maxLength: {
                     value: 15,
-                    message: "15자리 이하 아이디를 사용하세요",
+                    message: '15자리 이하 아이디를 사용하세요',
                   },
                 })}
               />
@@ -114,21 +111,21 @@ function Registration() {
                 type="text"
                 placeholder="비밀번호 재입력"
                 aria-invalid={
-                  isSubmitted ? (errors.password ? "true" : "false") : undefined
+                  isSubmitted ? (errors.password ? 'true' : 'false') : undefined
                 }
-                {...register("password", {
-                  required: "비밀번호는 필수 입력입니다.",
+                {...register('password', {
+                  required: '비밀번호는 필수 입력입니다.',
                   pattern: {
-                    value: new RegExp(`${password}`, "g"),
-                    message: "비밀번호가 일치하지 않습니다.",
+                    value: new RegExp(`${password}`, 'g'),
+                    message: '비밀번호가 일치하지 않습니다.',
                   },
                   minLength: {
                     value: 10,
-                    message: "10자리 이상 비밀번호를 사용하세요",
+                    message: '10자리 이상 비밀번호를 사용하세요',
                   },
                   maxLength: {
                     value: 20,
-                    message: "20자리 이하 비밀번호를 사용하세요",
+                    message: '20자리 이하 비밀번호를 사용하세요',
                   },
                 })}
               />
@@ -146,13 +143,13 @@ function Registration() {
                 type="text"
                 placeholder="닉네임 입력"
                 aria-invalid={
-                  isSubmitted ? (errors.nick ? "true" : "false") : undefined
+                  isSubmitted ? (errors.nick ? 'true' : 'false') : undefined
                 }
-                {...register("nick", {
-                  required: "닉네임은 필수 입력입니다.",
+                {...register('nick', {
+                  required: '닉네임은 필수 입력입니다.',
                   maxLength: {
                     value: 10,
-                    message: "10자리 이하 닉네임을 사용해주세요.",
+                    message: '10자리 이하 닉네임을 사용해주세요.',
                   },
                 })}
               />

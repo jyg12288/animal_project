@@ -1,0 +1,48 @@
+.main {
+  padding: 0 20px;
+}
+
+.header {
+  position: relative;
+  text-align: center;
+}
+
+.header__title {
+  font-size: 18px;
+  font-weight: normal;
+  padding-top: 17px;
+}
+
+.topList_container {
+  position: relative;
+}
+
+.category_container {
+  display: inline-block;
+}
+
+.category_container > span {
+  background: #ff80ab;
+  color: #fff;
+  padding: 5px 11px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.location_container {
+  display: inline-block;
+  float: right;
+}
+
+.location_container > .img_container {
+  width: 21px;
+  height: 21px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.location_container > .img_container > img {
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+}
