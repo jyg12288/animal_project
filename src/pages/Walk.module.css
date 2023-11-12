@@ -1,0 +1,15 @@
+.list__more_btn {
+  display: block;
+}
+
+.list__more_btn_hidden {
+  display: none;
+}
+
+.date__dates > .item {
+  border: 2px solid rgb(145, 145, 145);
+}
+
+.date__dates > .item_current {
+  border: 2px solid rgb(255, 69, 69);
+}

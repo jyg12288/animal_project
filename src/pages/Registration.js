@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./Registration.module.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
-function Registration() {
+function Registration({ coord }) {
   const [password, setPassword] = useState("");
-  const [lon, setLon] = useState("");
-  const [lat, setLat] = useState("");
 
   const {
     register,
@@ -20,27 +17,6 @@ function Registration() {
   };
 
   const navigate = useNavigate();
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-
-      axios
-        .get(
-          `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lon}&y=${lat}`,
-          {
-            headers: {
-              Authorization: `KakaoAK ${process.env.REACT_APP_KAKAO_API_KEY}`,
-            },
-          }
-        )
-        .then((result) => {
-          //법정동 기준으로 동단위의 값을 가져온다
-          let location = result.data.documents[0].region_3depth_name;
-          console.log(location);
-        });
-    });
-  }, []);
 
   return (
     <div className={styles.main}>
