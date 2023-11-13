@@ -19,7 +19,7 @@ function Community({ coord }) {
       category: 'daily',
       profile_img: '/assets/home/임시프로필.png',
       nic: '솜이',
-      location: coord.region_3depth_name,
+      location: '성동구',
       date: '1시간 전',
       img: '/assets/home/동탄여울공원.png',
       content: '커뮤니티 글',
@@ -30,7 +30,7 @@ function Community({ coord }) {
       category: 'daily',
       profile_img: '/assets/home/임시프로필.png',
       nic: '몽이',
-      location: coord.region_3depth_name,
+      location: '성동구',
       date: '2시간 전',
       img: '/assets/home/동탄여울공원.png',
       content: '커뮤니티 글',
@@ -41,7 +41,7 @@ function Community({ coord }) {
       category: 'question',
       profile_img: '/assets/home/임시프로필.png',
       nic: '돌리',
-      location: coord.region_3depth_name,
+      location: '성동구',
       date: '3시간 전',
       img: '/assets/home/동탄여울공원.png',
       content: '커뮤니티 글',
@@ -60,8 +60,6 @@ function Community({ coord }) {
         return false;
       })
     );
-    console.log(category);
-    console.log(postList);
   }, [category]);
 
   return (
@@ -114,7 +112,12 @@ function Community({ coord }) {
                   </div>
                   <div className={styles.bottomList_container}>
                     <div className={styles.community_category}>
-                      <span>{category}</span>
+                      <span>
+                        <CategoryName
+                          categories={categories}
+                          postList={data.category}
+                        />
+                      </span>
                     </div>
                     <div className={styles.post_reaction}>
                       <div className={styles.post_like}>
@@ -163,5 +166,10 @@ function Community({ coord }) {
     </div>
   );
 }
+
+const CategoryName = function ({ categories, postList }) {
+  for (let i = 0; i < categories.length; i++)
+    if (categories[i].value === postList) return categories[i].name;
+};
 
 export default Community;
