@@ -78,8 +78,8 @@ function Mypage({ coord }) {
           <img src="/assets/mypage/배너.png" alt="" />
         </article>
         <article className={styles.container__menu_list}>
-          <ul>
-            <li>
+          <ul className={styles.list__items}>
+            <li className={styles.items__user_info_btn}>
               <Link to="/mypage/users">
                 <span>내 정보</span>{" "}
                 <div className={styles.img_container}>
@@ -87,13 +87,13 @@ function Mypage({ coord }) {
                 </div>
               </Link>
             </li>
-            <li>
+            <li className={styles.items__item}>
               <span>푸시 설정</span>{" "}
               <div className={styles.img_container}>
                 <img src="/assets/mypage/더보기 아이콘.png" alt="more icon" />
               </div>
             </li>
-            <li>
+            <li className={styles.items__item}>
               <span>이용 약관</span>{" "}
               <div className={styles.img_container}>
                 <img src="/assets/mypage/더보기 아이콘.png" alt="more icon" />
