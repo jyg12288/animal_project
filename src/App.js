@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import Walk from "./pages/Walk";
+import Mypage from "./pages/Mypage";
 
 function App() {
   const [coord, setCoord] = useState("");
@@ -44,6 +45,7 @@ function App() {
             element={<Registration coord={coord} />}
           />
           <Route path="/walk" exact element={<Walk coord={coord} />} />
+          <Route path="/mypage" exact element={<Mypage coord={coord} />} />
         </Routes>
       </BrowserRouter>
     </div>
