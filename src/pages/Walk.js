@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Walk.module.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Walk({ coord }) {
   // 로그인 상태
@@ -11,14 +12,15 @@ function Walk({ coord }) {
   const currentYear = currentDay.getFullYear();
   const currentMonth = currentDay.getMonth();
   const currentDate = currentDay.getDate();
-  const currentDayOfWeek = currentDay.getDay();
-  console.log(coord);
+
   // 이번주 날짜를 저장할 변수
   const [thisWeek, setThisWeek] = useState([]);
-  console.log(coord);
+
   // 이번주 날짜를 가져올 함수
   const weekDate = () => {
     let temp = [];
+
+    // 요일을 한글로 변환할 때 사용할 집합
     const day = {
       0: "일",
       1: "월",
@@ -33,7 +35,7 @@ function Walk({ coord }) {
       let resultDay = new Date(
         currentYear,
         currentMonth,
-        currentDate + (i - currentDayOfWeek)
+        currentDate + (i - currentDay.getDay())
       );
 
       let yyyy = Number(resultDay.getFullYear());
@@ -63,7 +65,7 @@ function Walk({ coord }) {
   const [pagenum, setPagenum] = useState(0);
 
   // 더보기 버튼 상태
-  const [moreBtn, setMoreBtn] = useState(false);
+  const moreBtn = useRef(false);
 
   // 산책 일지에서 일부만 가져오기 위한 변수
   let slice = pagenum + 3;
@@ -72,15 +74,76 @@ function Walk({ coord }) {
   const handleMoreBtn = (currentPagenum) => {
     if (currentPagenum >= diary.length) {
       setPagenum(diary.length);
-      setMoreBtn(true);
+      moreBtn.current = true;
     } else {
       setPagenum(currentPagenum);
     }
   };
 
-  // 일주일 달력을 생성해주는 함수를 호출해주는 함수
+  // 현재 날씨 정보를 저장하는 변수
+  const [weather, setWeather] = useState({
+    temp: 0,
+    weather: "",
+    weatherIcon: "",
+    rain: 0,
+  });
+
+  // 미세먼지 농도를 저장하는 변수
+  const [minudust, setMinudust] = useState({ description: "", level: "" });
+
   useEffect(() => {
     weekDate();
+
+    // 현재 날씨를 가져와주는 API
+    navigator.geolocation.getCurrentPosition((position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      axios
+        .get(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=kr&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}&units=metric`
+        )
+        .then((response) => {
+          const temp = response.data.main.temp;
+          const weather = response.data.weather[0].description;
+          const weatherIcon =
+            "https://openweathermap.org/img/wn/" +
+            response.data.weather[0].icon +
+            "@2x.png";
+          const rain =
+            response.data.weather[0].main !== "Rain" &&
+            response.data.weather[0].main !== "rain"
+              ? 0
+              : response["data"]["rain"]["1h"];
+
+          setWeather({
+            temp: temp,
+            weather: weather,
+            weatherIcon: weatherIcon,
+            rain: rain,
+          });
+        });
+    });
+
+    // 미세먼지 농도 api
+    axios
+      .get(
+        `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustFrcstDspth?serviceKey=${
+          process.env.REACT_APP_MINUDUST_API_KEY
+        }&returnType=json&numOfRows=1&pageNo=1&searchDate=${currentYear}-${
+          currentMonth + 1
+        }-${currentDate - 1}&InformCode=PM10`
+      )
+      .then((response) => {
+        setMinudust({
+          description:
+            response.data.response.body.items[0].informCause.slice(9),
+          level: response.data.response.body.items[0].informOverall.slice(
+            16,
+            18
+          ),
+        });
+      });
   }, []);
 
   return (
@@ -109,33 +172,27 @@ function Walk({ coord }) {
                 월{currentDate.length === 1 ? "0" + currentDate : currentDate}일
               </span>
               <div className={styles.info__items}>
-                <span>OO시 OO구 OO동</span>
+                <span>
+                  {coord.region_2depth_name} {coord.region_3depth_name}
+                </span>
                 <div className={styles.temp_container}>
                   <div className={styles.img_container}>
                     <img src="/assets/walk/온도 아이콘.png" alt="temp_icon" />
                   </div>
-                  <span>10℃</span>
+                  <span>{weather.temp}℃</span>
                 </div>
               </div>
             </div>
             <div className={styles.walk__weather_info}>
-              <div className={styles.particulate_matter_level}>
-                <div className={styles.img_container}>
-                  <img
-                    src="/assets/walk/미세먼지 좋음 아이콘.png"
-                    alt="particulate matter icon"
-                  />
-                </div>
-                <span>산책하기 좋은 날 오늘을 놓치지 마세요.</span>
-              </div>
+              {minudust.level && <MinudustText minudust={minudust.level} />}
               <div className={styles.weather_level}>
                 <div className={styles.current_weather}>
-                  <img src="/assets/walk/weather icon.png" alt="weather icon" />
-                  <span>구름</span>
+                  <img src={weather.weatherIcon} alt="weather icon" />
+                  <span>{weather.weather}</span>
                 </div>
                 <div className={styles.current_weather_detail}>
-                  <span>미세먼지: 좋음</span>
-                  <span>강수확율: 30%</span>
+                  <span>{minudust.level}</span>
+                  <span>{weather.rain}mm/h</span>
                 </div>
               </div>
             </div>
@@ -191,22 +248,22 @@ function Walk({ coord }) {
                 <span>70.3kcal</span>
               </div>
             </div>
-            <div className={styles.diray__banner}>
+            <div className={styles.diary__banner}>
               <span>산책 내역과 사진을 가족들에게 알려주세요</span>
             </div>
-            <div className={styles.diary_list}>
+            <div className={styles.diary__list}>
               <h3 className={styles.list__title}>산책 내역</h3>
               <ol className={styles.list__items}>
                 {diary.slice(0, slice).map((data, i) => {
                   return (
                     <li className={styles.item} key={i}>
-                      <div className={styles.item_left}>
+                      <div className={styles.item__left}>
                         <span>{data.date}</span>
                         <span>
                           {data.time}분, {data.distance}m, {data.kcal}kcal
                         </span>
                       </div>
-                      <div className={styles.item_right}>
+                      <div className={styles.item__right}>
                         <img
                           src="/assets/home/임시프로필.png"
                           alt="user profile"
@@ -222,7 +279,7 @@ function Walk({ coord }) {
                   handleMoreBtn(pagenum + 3);
                 }}
                 className={
-                  !moreBtn
+                  !moreBtn.current
                     ? styles.list__more_btn
                     : styles.list__more_btn_hidden
                 }
@@ -235,6 +292,51 @@ function Walk({ coord }) {
       )}
     </div>
   );
+}
+
+// 미세먼지 농도에 따라 알맞은 코멘트를 화면에 보여주는 컴포넌트
+function MinudustText({ minudust }) {
+  if (minudust === "좋음") {
+    return (
+      <div className={styles.particulate_matter_level}>
+        <div className={styles.img_container}>
+          <img
+            src="/assets/walk/좋음 아이콘.png"
+            alt="particulate matter icon"
+          />
+        </div>
+        <div className={styles.description}>
+          <span>산책하기 정말 좋은 날</span>
+          <span>오늘을 놓치지 마세요.</span>
+        </div>
+      </div>
+    );
+  } else if (minudust === "나쁨") {
+    <div className={styles.particulate_matter_level}>
+      <div className={styles.img_container}>
+        <img src="/assets/walk/나쁨 아이콘.png" alt="particulate matter icon" />
+      </div>
+      <div className={styles.description}>
+        <span>산책하기 어려운 날</span>
+        <span>마스크 꼭 착용하세요.</span>
+      </div>
+    </div>;
+  } else {
+    return (
+      <div className={styles.particulate_matter_level}>
+        <div className={styles.img_container}>
+          <img
+            src="/assets/walk/보통 아이콘.png"
+            alt="particulate matter icon"
+          />
+        </div>
+        <div className={styles.description}>
+          <span>산책하기 무난한 날</span>
+          <span>좋은 하루 보내세요.</span>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Walk;
