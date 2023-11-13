@@ -40,7 +40,7 @@ function Community({ coord }) {
     {
       category: 'question',
       profile_img: '/assets/home/임시프로필.png',
-      nic: '둘리',
+      nic: '돌리',
       location: coord.region_3depth_name,
       date: '3시간 전',
       img: '/assets/home/동탄여울공원.png',
