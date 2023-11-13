@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Walk.module.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -65,7 +65,7 @@ function Walk({ coord }) {
   const [pagenum, setPagenum] = useState(0);
 
   // 더보기 버튼 상태
-  const [moreBtn, setMoreBtn] = useState(false);
+  const moreBtn = useRef(false);
 
   // 산책 일지에서 일부만 가져오기 위한 변수
   let slice = pagenum + 3;
@@ -74,7 +74,7 @@ function Walk({ coord }) {
   const handleMoreBtn = (currentPagenum) => {
     if (currentPagenum >= diary.length) {
       setPagenum(diary.length);
-      setMoreBtn(true);
+      moreBtn.current = true;
     } else {
       setPagenum(currentPagenum);
     }
@@ -191,8 +191,8 @@ function Walk({ coord }) {
                   <span>{weather.weather}</span>
                 </div>
                 <div className={styles.current_weather_detail}>
-                  <span>미세먼지: {minudust.level}</span>
-                  <span>강수량: {weather.rain}mm/h</span>
+                  <span>{minudust.level}</span>
+                  <span>{weather.rain}mm/h</span>
                 </div>
               </div>
             </div>
@@ -248,22 +248,22 @@ function Walk({ coord }) {
                 <span>70.3kcal</span>
               </div>
             </div>
-            <div className={styles.diray__banner}>
+            <div className={styles.diary__banner}>
               <span>산책 내역과 사진을 가족들에게 알려주세요</span>
             </div>
-            <div className={styles.diary_list}>
+            <div className={styles.diary__list}>
               <h3 className={styles.list__title}>산책 내역</h3>
               <ol className={styles.list__items}>
                 {diary.slice(0, slice).map((data, i) => {
                   return (
                     <li className={styles.item} key={i}>
-                      <div className={styles.item_left}>
+                      <div className={styles.item__left}>
                         <span>{data.date}</span>
                         <span>
                           {data.time}분, {data.distance}m, {data.kcal}kcal
                         </span>
                       </div>
-                      <div className={styles.item_right}>
+                      <div className={styles.item__right}>
                         <img
                           src="/assets/home/임시프로필.png"
                           alt="user profile"
@@ -279,7 +279,7 @@ function Walk({ coord }) {
                   handleMoreBtn(pagenum + 3);
                 }}
                 className={
-                  !moreBtn
+                  !moreBtn.current
                     ? styles.list__more_btn
                     : styles.list__more_btn_hidden
                 }

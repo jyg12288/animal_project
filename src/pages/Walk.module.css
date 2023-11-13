@@ -1,15 +1,332 @@
+.header {
+  padding: 13px 0 20px;
+  text-align: center;
+}
+
+.header__title {
+  font-size: 18px;
+}
+
+.container {
+  background-color: #ffd6e4;
+  padding: 14px 0 20px;
+}
+
+/* 산책하기 */
+.container__walk {
+  margin: 0 20px 10px;
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 10px 0 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.walk__title {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  padding-left: 20px;
+}
+
+/* 산책하기 위치 부분*/
+.walk__location_info {
+  padding: 0 20px;
+  border-bottom: 2px solid #f3f3f3;
+}
+
+.current_date {
+  color: #8c8b8b;
+  font-family: Noto Sans KR;
+  font-size: 11px;
+}
+
+.info__items {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+}
+
+.info__items > span {
+  font-size: 13px;
+}
+
+.info__items > span::after {
+  content: " 산책지수";
+  color: #8c8b8b;
+}
+
+.temp_container {
+  display: flex;
+  line-height: 100%;
+}
+
+.temp_container > .img_container {
+  width: 5.694px;
+  height: 12.379px;
+  margin-right: 4px;
+}
+
+.img_container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.temp_container > span {
+  font-size: 12px;
+  color: #545454;
+}
+
+/* 산책하기 미세먼지 부분*/
+.walk__weather_info {
+  margin: 10px 20px 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.particulate_matter_level {
+  display: flex;
+  align-items: center;
+}
+
+.particulate_matter_level > .img_container {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  margin-right: 9px;
+}
+
+.particulate_matter_level > .description {
+  display: flex;
+  flex-direction: column;
+}
+
+.description > span {
+  color: #7e7e7e;
+  font-size: 11px;
+}
+
+/* 산책하기 날씨 부분 */
+.weather_level {
+  text-align: right;
+}
+
+.current_weather {
+  height: 28px;
+}
+
+.current_weather > img {
+  width: auto;
+  vertical-align: middle;
+  height: 100%;
+  object-fit: contain;
+}
+
+.current_weather > span {
+  color: #7e7e7e;
+  font-size: 11px;
+}
+
+.current_weather_detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.current_weather_detail > span {
+  font-size: 11px;
+  color: #545454;
+}
+
+.current_weather_detail > span:nth-child(1)::before {
+  content: "미세먼지: ";
+  color: #7e7e7e;
+}
+
+.current_weather_detail > span:nth-child(2)::before {
+  content: "강수량: ";
+  color: #7e7e7e;
+}
+
+.walk__start_btn {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 43px;
+  background-color: #ff80ab;
+  border-style: none;
+  border-radius: 7px;
+  color: #fff;
+  font-size: 16px;
+}
+
+/* 산책일지 */
+.container__diary {
+  margin: 0 20px 20px;
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 10px 0 5px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.diary__title {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  padding-left: 20px;
+}
+
+/* 산책일지 달력 부분 */
+.diary__week_date {
+  padding: 0 20px;
+  border-bottom: 2px solid #f3f3f3;
+}
+
+.date__days {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+  margin-bottom: 8.72px;
+}
+
+.date__days > span {
+  font-size: 11px;
+  color: #7e7e7e;
+}
+
+.days__item {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.date__dates {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.date__dates > .item {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.date__dates > .item_current {
+  border-radius: 50%;
+  width: 25px;
+  background-color: #ff80ab;
+  height: 25px;
+  font-size: 13px;
+  text-align: center;
+  line-height: 25px;
+  color: #fff;
+}
+
+/* 산책일지 산책 정보 부분 */
+.diary_info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 0;
+}
+
+.diary_info > .item {
+  display: flex;
+  flex-direction: column;
+}
+
+.diary_info > .item > span:nth-child(1) {
+  font-size: 11px;
+  color: #7e7e7e;
+}
+
+.diary_info > .item > span:nth-child(2) {
+  font-size: 12px;
+}
+
+/* 산책일지 배너 부분 */
+.diary__banner {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 43px;
+  background-color: #30ddbc;
+  border-style: none;
+  border-radius: 7px;
+  text-align: center;
+  line-height: 38px;
+  margin: 27px 0;
+}
+
+.diary__banner > span {
+  color: #fff;
+  font-size: 11px;
+}
+
+.diary__list {
+  padding: 0 20px;
+}
+
+.list__title {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.list__items {
+  list-style: none;
+  margin: 10px 0 20px;
+}
+
+.list__items > .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.list__items > .item > .item__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.item__left > span:nth-child(1) {
+  font-size: 11px;
+  color: #7e7e7e;
+}
+
+.item__left > span:nth-child(2) {
+  font-size: 12px;
+}
+
+.list__items > .item > .item__right {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.item__right > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .list__more_btn {
   display: block;
+  width: 100%;
+  border-style: none;
+  border-top: 1px solid #f3f3f3;
+  background-color: transparent;
+  height: 43px;
+  font-size: 11px;
+  color: #545454;
 }
 
 .list__more_btn_hidden {
   display: none;
-}
-
-.date__dates > .item {
-  border: 2px solid rgb(145, 145, 145);
-}
-
-.date__dates > .item_current {
-  border: 2px solid rgb(255, 69, 69);
 }
