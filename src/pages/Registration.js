@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styles from "./Registration.module.css";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import styles from './Registration.module.css';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 function Registration({ coord }) {
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState('');
 
   const {
     register,
@@ -53,17 +53,17 @@ function Registration({ coord }) {
                 type="text"
                 placeholder="아이디 입력"
                 aria-invalid={
-                  isSubmitted ? (errors.id ? "true" : "false") : undefined
+                  isSubmitted ? (errors.id ? 'true' : 'false') : undefined
                 }
-                {...register("id", {
-                  required: "아이디는 필수 입력입니다.",
+                {...register('id', {
+                  required: '아이디는 필수 입력입니다.',
                   minLength: {
                     value: 8,
-                    message: "8자리 이상 아이디를 사용하세요",
+                    message: '8자리 이상 아이디를 사용하세요',
                   },
                   maxLength: {
                     value: 15,
-                    message: "15자리 이하 아이디를 사용하세요",
+                    message: '15자리 이하 아이디를 사용하세요',
                   },
                 })}
               />
@@ -87,21 +87,21 @@ function Registration({ coord }) {
                 type="text"
                 placeholder="비밀번호 재입력"
                 aria-invalid={
-                  isSubmitted ? (errors.password ? "true" : "false") : undefined
+                  isSubmitted ? (errors.password ? 'true' : 'false') : undefined
                 }
-                {...register("password", {
-                  required: "비밀번호는 필수 입력입니다.",
+                {...register('password', {
+                  required: '비밀번호는 필수 입력입니다.',
                   pattern: {
-                    value: new RegExp(`${password}`, "g"),
-                    message: "비밀번호가 일치하지 않습니다.",
+                    value: new RegExp(`${password}`, 'g'),
+                    message: '비밀번호가 일치하지 않습니다.',
                   },
                   minLength: {
                     value: 10,
-                    message: "10자리 이상 비밀번호를 사용하세요",
+                    message: '10자리 이상 비밀번호를 사용하세요',
                   },
                   maxLength: {
                     value: 20,
-                    message: "20자리 이하 비밀번호를 사용하세요",
+                    message: '20자리 이하 비밀번호를 사용하세요',
                   },
                 })}
               />
@@ -119,13 +119,13 @@ function Registration({ coord }) {
                 type="text"
                 placeholder="닉네임 입력"
                 aria-invalid={
-                  isSubmitted ? (errors.nick ? "true" : "false") : undefined
+                  isSubmitted ? (errors.nick ? 'true' : 'false') : undefined
                 }
-                {...register("nick", {
-                  required: "닉네임은 필수 입력입니다.",
+                {...register('nick', {
+                  required: '닉네임은 필수 입력입니다.',
                   maxLength: {
                     value: 10,
-                    message: "10자리 이하 닉네임을 사용해주세요.",
+                    message: '10자리 이하 닉네임을 사용해주세요.',
                   },
                 })}
               />
