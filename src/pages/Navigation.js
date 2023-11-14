@@ -1,11 +1,11 @@
-import React from 'react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Navigation.module.css';
+import React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "./Navigation.module.css";
 
 function Navigation() {
   const [activeNav, setActiveNav] = useState(1);
-  console.log('네비게이션');
+  console.log("네비게이션");
 
   return (
     <div className={styles.main}>

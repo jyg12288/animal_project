@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Home.module.css';
-import Navigation from './Navigation';
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import styles from "./Home.module.css";
+import Navigation from "./Navigation";
 
 function Home() {
   const [loginState, setLoginState] = useState(false);
@@ -105,7 +105,7 @@ function Home() {
           </article>
         </section>
       </section>
-      <Navigation />
+      <Navigation target={1} />
     </div>
   );
 }

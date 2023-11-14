@@ -14,6 +14,31 @@
   margin-bottom: 47px;
 }
 
+/* 산책 로그인 부분 */
+.container__login {
+  width: 100%;
+  height: 78vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container__login > span {
+  font-size: 17px;
+}
+
+.container__login > a {
+  width: 200px;
+  height: 40px;
+  background-color: #ff80ab;
+  border-radius: 7px;
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+  margin-top: 15px;
+}
+
 /* 산책하기 */
 .container__walk {
   margin: 0 20px 10px;
@@ -53,7 +78,7 @@
 }
 
 .info__items > span::after {
-  content: ' 산책지수';
+  content: " 산책지수";
   color: #8c8b8b;
 }
 
@@ -84,7 +109,7 @@
   margin: 10px 20px 38px;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .particulate_matter_level {
@@ -141,12 +166,12 @@
 }
 
 .current_weather_detail > span:nth-child(1)::before {
-  content: '미세먼지: ';
+  content: "미세먼지: ";
   color: #7e7e7e;
 }
 
 .current_weather_detail > span:nth-child(2)::before {
-  content: '강수량: ';
+  content: "강수량: ";
   color: #7e7e7e;
 }
 
@@ -288,7 +313,7 @@
 .list__items > .item {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   margin-bottom: 20px;
 }
 
