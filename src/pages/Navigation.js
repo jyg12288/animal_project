@@ -1,22 +1,15 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
-function Navigation() {
-  const [activeNav, setActiveNav] = useState(1);
-  console.log('네비게이션');
-
+function Navigation({ target }) {
   return (
     <div className={styles.main}>
       <nav className={styles.nav_container}>
         <div className={styles.home_container}>
-          <Link
-            to="/"
-            className={styles.nav_link}
-            onClick={() => setActiveNav(1)}
-          >
-            {activeNav === 1 ? (
+          <Link to="/" className={styles.nav_link}>
+            {target === 1 ? (
               <div className={styles.nav_item_selected}>
                 <div className={styles.img_container}>
                   <img src="/assets/navigation/선택 한 홈.png" alt="/" />
@@ -34,12 +27,8 @@ function Navigation() {
           </Link>
         </div>
         <div className={styles.care_container}>
-          <Link
-            to="/walk"
-            className={styles.nav_link}
-            onClick={() => setActiveNav(2)}
-          >
-            {activeNav === 2 ? (
+          <Link to="/walk" className={styles.nav_link}>
+            {target === 2 ? (
               <div className={styles.nav_item_selected}>
                 <div className={styles.img_container}>
                   <img src="/assets/navigation/선택한 케어.png" alt="/" />
@@ -57,12 +46,8 @@ function Navigation() {
           </Link>
         </div>
         <div className={styles.community_container}>
-          <Link
-            to="/community"
-            className={styles.nav_link}
-            onClick={() => setActiveNav(3)}
-          >
-            {activeNav === 3 ? (
+          <Link to="/community" className={styles.nav_link}>
+            {target === 3 ? (
               <div className={styles.nav_item_selected}>
                 <div className={styles.img_container}>
                   <img src="/assets/navigation/선택한 커뮤니티.png" alt="/" />
@@ -83,12 +68,8 @@ function Navigation() {
           </Link>
         </div>
         <div className={styles.mypage_container}>
-          <Link
-            to="/mypage"
-            className={styles.nav_link}
-            onClick={() => setActiveNav(4)}
-          >
-            {activeNav === 4 ? (
+          <Link to="/mypage" className={styles.nav_link}>
+            {target === 4 ? (
               <div className={styles.nav_item_selected}>
                 <div className={styles.img_container}>
                   <img

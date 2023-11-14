@@ -103,7 +103,7 @@ function Mypage({ coord }) {
           </ul>
         </article>
       </section>
-      <Navigation />
+      <Navigation target={4} />
     </div>
   );
 }

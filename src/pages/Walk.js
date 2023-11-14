@@ -291,7 +291,7 @@ function Walk({ coord }) {
           </article>
         </section>
       )}
-      <Navigation />
+      <Navigation target={2} />
     </div>
   );
 }

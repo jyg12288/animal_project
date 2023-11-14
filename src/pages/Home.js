@@ -105,7 +105,7 @@ function Home() {
           </article>
         </section>
       </section>
-      <Navigation />
+      <Navigation target={1} />
     </div>
   );
 }

@@ -165,7 +165,7 @@ function Community({ coord }) {
           </Link>
         </div>
       </section>
-      <Navigation />
+      <Navigation target={3} />
     </div>
   );
 }
