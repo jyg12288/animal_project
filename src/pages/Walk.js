@@ -73,8 +73,8 @@ function Walk({ coord }) {
   // 더보기 버튼을 눌렀을 때 실행될 함수
   const handleMoreBtn = (currentPagenum) => {
     if (currentPagenum + 3 >= diary.length) {
-      setPagenum(diary.length);
       moreBtn.current = true;
+      setPagenum(diary.length);
     } else {
       setPagenum(currentPagenum);
     }
