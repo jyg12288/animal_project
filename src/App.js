@@ -9,6 +9,7 @@ import Walk from "./pages/Walk";
 import Mypage from "./pages/Mypage";
 import Community from "./pages/Community";
 import Hospital from "./pages/Hospital";
+import Navigation from "./pages/Navigation";
 
 function App() {
   const [coord, setCoord] = useState("");
@@ -39,6 +40,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="*" exact element={<Navigation />} />
+        </Routes>
+      </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/login" exact element={<Login />} />
           <Route
@@ -54,6 +60,7 @@ function App() {
             element={<Community coord={coord} />}
           />
           <Route path="/hospital" exact element={<Hospital coord={coord} />} />
+          <Route path="/navigation" exact element={<Navigation />} />
         </Routes>
       </BrowserRouter>
     </div>

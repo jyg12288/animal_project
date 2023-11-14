@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./Mypage.module.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styles from './Mypage.module.css';
+import { Link } from 'react-router-dom';
 
 function Mypage({ coord }) {
   return (
@@ -81,20 +81,20 @@ function Mypage({ coord }) {
           <ul className={styles.list__items}>
             <li className={styles.items__user_info_btn}>
               <Link to="/mypage/users">
-                <span>내 정보</span>{" "}
+                <span>내 정보</span>{' '}
                 <div className={styles.img_container}>
                   <img src="/assets/mypage/더보기 아이콘.png" alt="more icon" />
                 </div>
               </Link>
             </li>
             <li className={styles.items__item}>
-              <span>푸시 설정</span>{" "}
+              <span>푸시 설정</span>{' '}
               <div className={styles.img_container}>
                 <img src="/assets/mypage/더보기 아이콘.png" alt="more icon" />
               </div>
             </li>
             <li className={styles.items__item}>
-              <span>이용 약관</span>{" "}
+              <span>이용 약관</span>{' '}
               <div className={styles.img_container}>
                 <img src="/assets/mypage/더보기 아이콘.png" alt="more icon" />
               </div>

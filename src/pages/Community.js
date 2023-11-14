@@ -22,7 +22,8 @@ function Community({ coord }) {
       location: '성동구',
       date: '1시간 전',
       img: '/assets/home/동탄여울공원.png',
-      content: '커뮤니티 글',
+      content:
+        '비가 와서 오늘은 산책을 못 갔네요.. 솜이가 화가났어요 그래서 간식을 많이 줬어요!',
       like: 4,
       comment: 11,
     },

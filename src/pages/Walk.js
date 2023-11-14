@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import styles from "./Walk.module.css";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect, useRef } from 'react';
+import styles from './Walk.module.css';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Walk({ coord }) {
   // 로그인 상태
@@ -22,13 +22,13 @@ function Walk({ coord }) {
 
     // 요일을 한글로 변환할 때 사용할 집합
     const day = {
-      0: "일",
-      1: "월",
-      2: "화",
-      3: "수",
-      4: "목",
-      5: "금",
-      6: "토",
+      0: '일',
+      1: '월',
+      2: '화',
+      3: '수',
+      4: '목',
+      5: '금',
+      6: '토',
     };
 
     for (let i = 0; i < 7; i++) {
@@ -51,13 +51,13 @@ function Walk({ coord }) {
 
   // 산책 일지 저장 변수
   const [diary, setDiary] = useState([
-    { date: "10월 02일 월요일", time: "43", distance: "851", kcal: "12.6" },
-    { date: "10월 01일 일요일", time: "33", distance: "100", kcal: "6.7" },
-    { date: "09월 29일 금요일", time: "196", distance: "780", kcal: "70.3" },
-    { date: "10월 02일 월요일", time: "43", distance: "851", kcal: "12.6" },
-    { date: "10월 02일 월요일", time: "43", distance: "851", kcal: "12.6" },
-    { date: "10월 02일 월요일", time: "43", distance: "851", kcal: "12.6" },
-    { date: "10월 02일 월요일", time: "43", distance: "851", kcal: "12.6" },
+    { date: '10월 02일 월요일', time: '43', distance: '851', kcal: '12.6' },
+    { date: '10월 01일 일요일', time: '33', distance: '100', kcal: '6.7' },
+    { date: '09월 29일 금요일', time: '196', distance: '780', kcal: '70.3' },
+    { date: '10월 02일 월요일', time: '43', distance: '851', kcal: '12.6' },
+    { date: '10월 02일 월요일', time: '43', distance: '851', kcal: '12.6' },
+    { date: '10월 02일 월요일', time: '43', distance: '851', kcal: '12.6' },
+    { date: '10월 02일 월요일', time: '43', distance: '851', kcal: '12.6' },
   ]);
 
   // 산책 일지를 3개씩만 보여주기 위해
@@ -83,13 +83,13 @@ function Walk({ coord }) {
   // 현재 날씨 정보를 저장하는 변수
   const [weather, setWeather] = useState({
     temp: 0,
-    weather: "",
-    weatherIcon: "",
+    weather: '',
+    weatherIcon: '',
     rain: 0,
   });
 
   // 미세먼지 농도를 저장하는 변수
-  const [minudust, setMinudust] = useState({ description: "", level: "" });
+  const [minudust, setMinudust] = useState({ description: '', level: '' });
 
   useEffect(() => {
     weekDate();
@@ -107,14 +107,14 @@ function Walk({ coord }) {
           const temp = response.data.main.temp;
           const weather = response.data.weather[0].description;
           const weatherIcon =
-            "https://openweathermap.org/img/wn/" +
+            'https://openweathermap.org/img/wn/' +
             response.data.weather[0].icon +
-            "@2x.png";
+            '@2x.png';
           const rain =
-            response.data.weather[0].main !== "Rain" &&
-            response.data.weather[0].main !== "rain"
+            response.data.weather[0].main !== 'Rain' &&
+            response.data.weather[0].main !== 'rain'
               ? 0
-              : response["data"]["rain"]["1h"];
+              : response['data']['rain']['1h'];
 
           setWeather({
             temp: temp,
@@ -167,9 +167,9 @@ function Walk({ coord }) {
             <div className={styles.walk__location_info}>
               <span className={styles.current_date}>
                 {(currentMonth + 1).length === 1
-                  ? "0" + (currentMonth + 1)
+                  ? '0' + (currentMonth + 1)
                   : currentMonth + 1}
-                월{currentDate.length === 1 ? "0" + currentDate : currentDate}일
+                월{currentDate.length === 1 ? '0' + currentDate : currentDate}일
               </span>
               <div className={styles.info__items}>
                 <span>
@@ -296,7 +296,7 @@ function Walk({ coord }) {
 
 // 미세먼지 농도에 따라 알맞은 코멘트를 화면에 보여주는 컴포넌트
 function MinudustText({ minudust }) {
-  if (minudust === "좋음") {
+  if (minudust === '좋음') {
     return (
       <div className={styles.particulate_matter_level}>
         <div className={styles.img_container}>
@@ -311,7 +311,7 @@ function MinudustText({ minudust }) {
         </div>
       </div>
     );
-  } else if (minudust === "나쁨") {
+  } else if (minudust === '나쁨') {
     <div className={styles.particulate_matter_level}>
       <div className={styles.img_container}>
         <img src="/assets/walk/나쁨 아이콘.png" alt="particulate matter icon" />
