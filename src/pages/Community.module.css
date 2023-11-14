@@ -15,6 +15,7 @@
 
 .container {
   margin-top: 15px;
+  margin-bottom: 47px;
 }
 
 /*main*/
@@ -214,7 +215,7 @@ li {
 /*write icon*/
 .write_post {
   position: fixed;
-  bottom: 10px;
+  bottom: 50px;
   right: 10px;
 }
 

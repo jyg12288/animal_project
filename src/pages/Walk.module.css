@@ -10,6 +10,7 @@
 .container {
   background-color: #ffd6e4;
   padding: 14px 0 20px;
+  margin-bottom: 47px;
 }
 
 /* 산책하기 */
@@ -51,7 +52,7 @@
 }
 
 .info__items > span::after {
-  content: " 산책지수";
+  content: ' 산책지수';
   color: #8c8b8b;
 }
 
@@ -139,12 +140,12 @@
 }
 
 .current_weather_detail > span:nth-child(1)::before {
-  content: "미세먼지: ";
+  content: '미세먼지: ';
   color: #7e7e7e;
 }
 
 .current_weather_detail > span:nth-child(2)::before {
-  content: "강수량: ";
+  content: '강수량: ';
   color: #7e7e7e;
 }
 

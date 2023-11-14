@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Community.module.css';
 import { Link } from 'react-router-dom';
 import CategoryFilter from './CategoryFilter.js';
+import Navigation from './Navigation.js';
 
 function Community({ coord }) {
   const [likeState, setLikeState] = useState(true);
@@ -164,6 +165,7 @@ function Community({ coord }) {
           </Link>
         </div>
       </section>
+      <Navigation />
     </div>
   );
 }

@@ -14,6 +14,7 @@
 
 .container {
   background-color: #f2f2f2;
+  margin-bottom: 47px;
 }
 
 /* 마이페이지 프로필 정보 부분 */
@@ -86,12 +87,12 @@
 }
 
 .info__detail > span:nth-child(1)::after {
-  content: " • ";
+  content: ' • ';
   color: #5c5c5c;
 }
 
 .info__detail > span:nth-child(2)::after {
-  content: " • ";
+  content: ' • ';
   color: #5c5c5c;
 }
 

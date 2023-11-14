@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './Walk.module.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Navigation from './Navigation';
 
 function Walk({ coord }) {
   // 로그인 상태
@@ -290,6 +291,7 @@ function Walk({ coord }) {
           </article>
         </section>
       )}
+      <Navigation />
     </div>
   );
 }
