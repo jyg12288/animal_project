@@ -1,0 +1,187 @@
+.header {
+  display: grid;
+  grid-template-columns: 10px 1fr 30px;
+  align-items: center;
+  padding: 12px 20px 12px;
+  border-bottom: 1px solid #e3e1e1;
+}
+
+.header__previous_icon {
+  width: 100%;
+  height: 18px;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+}
+
+.header__previous_icon > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.header__search_input {
+  border-style: none;
+  width: 100%;
+  height: 43px;
+  padding-left: 13px;
+  font-size: 18px;
+}
+
+.header__search_btn {
+  width: 100%;
+  height: 30px;
+  background-color: transparent;
+  border-style: none;
+  text-align: right;
+}
+
+.header__search_btn > img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+/* 병원 사용자 위치 부분 */
+.user_location {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.user_location > .img_container {
+  width: 18px;
+  height: 23px;
+}
+
+.user_location > .img_container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.user_location > span {
+  font-size: 13px;
+}
+
+/* 병원 리스트 개수와 필터 부분 */
+.count_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  background-color: #eeebeb;
+  line-height: 48px;
+  padding: 0 20px;
+}
+
+.count_container > span {
+  font-size: 15px;
+}
+
+.search_filter {
+  background-color: transparent;
+  border-style: none;
+  border-image: none;
+  font-size: 14px;
+}
+
+.search_filter option:hover {
+  color: #fff;
+  background-color: #ff80ab;
+}
+
+/* 병원 리스트 부분 */
+.list {
+  background-color: #eeebeb;
+}
+
+.list__item {
+  background-color: #fff;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.list__item > h2 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.item__operating_time {
+  display: grid;
+  grid-template-columns: 114px 1fr;
+  padding: 5px 0;
+}
+
+.item__operating_time > .detail_time {
+  font-size: 13px;
+}
+
+.item__operating_time > .item_kind {
+  font-size: 13px;
+  color: #949292;
+}
+
+.item__operating_time > .item_kind::before {
+  content: "| ";
+  color: #949292;
+}
+
+.item__location {
+  display: grid;
+  grid-template-columns: 65px 1fr;
+  align-items: center;
+}
+
+.location__left {
+  display: flex;
+  align-items: center;
+}
+
+.location__left > .img_container {
+  width: 18px;
+  height: 23px;
+}
+
+.location__left > .img_container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.location__left > span {
+  font-size: 13px;
+}
+
+.location__right > span {
+  font-size: 13px;
+  color: #949292;
+}
+
+.location__right > span::before {
+  content: "| ";
+  color: #949292;
+}
+
+/* 병원 페이지 버튼 부분*/
+.pagination_container {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.pagination_container > li {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  font-size: 13px;
+  text-align: center;
+  line-height: 27px;
+}
+
+.pagination_container > .current {
+  background-color: #ff80ab;
+  color: #fff;
+}

@@ -27,11 +27,22 @@ a,
 li,
 input,
 button,
-label {
+label,
+select,
+option {
   font-family: "Noto Sans KR", sans-serif;
   color: #171717;
 }
 
 a {
   text-decoration: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
 }

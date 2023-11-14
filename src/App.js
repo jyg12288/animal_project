@@ -8,6 +8,7 @@ import Registration from "./pages/Registration";
 import Walk from "./pages/Walk";
 import Mypage from "./pages/Mypage";
 import Community from "./pages/Community";
+import Hospital from "./pages/Hospital";
 
 function App() {
   const [coord, setCoord] = useState("");
@@ -52,6 +53,7 @@ function App() {
             exact
             element={<Community coord={coord} />}
           />
+          <Route path="/hospital" exact element={<Hospital coord={coord} />} />
         </Routes>
       </BrowserRouter>
     </div>
