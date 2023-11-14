@@ -43,7 +43,7 @@
   color: #727272;
   padding: 5px 11px;
   border-radius: 10px;
-  border: 0.5px solid #727272;
+  border: 0.5px solid #b0b0b0;
   font-size: 12px;
   margin-right: 10px;
 }
@@ -133,7 +133,7 @@ li {
 }
 
 .post_container > .img_container {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .post_container > .img_container > img {
@@ -141,7 +141,7 @@ li {
 }
 
 .content {
-  margin-top: 5px;
+  margin-top: 1px;
 }
 
 .content > span {
@@ -153,6 +153,10 @@ li {
 .bottomList_container {
   display: flex;
   margin-top: 12px;
+}
+
+.community_category {
+  margin-top: -3px;
 }
 
 .community_category > span {
