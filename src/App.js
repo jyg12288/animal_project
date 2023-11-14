@@ -1,17 +1,18 @@
-import './App.css';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Registration from './pages/Registration';
-import Walk from './pages/Walk';
-import Mypage from './pages/Mypage';
-import Community from './pages/Community';
-import Navigation from './pages/Navigation';
+import "./App.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Registration from "./pages/Registration";
+import Walk from "./pages/Walk";
+import Mypage from "./pages/Mypage";
+import Community from "./pages/Community";
+import Hospital from "./pages/Hospital";
+import Navigation from "./pages/Navigation";
 
 function App() {
-  const [coord, setCoord] = useState('');
+  const [coord, setCoord] = useState("");
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -53,6 +54,7 @@ function App() {
             exact
             element={<Community coord={coord} />}
           />
+          <Route path="/hospital" exact element={<Hospital coord={coord} />} />
           <Route path="/navigation" exact element={<Navigation />} />
         </Routes>
       </BrowserRouter>
