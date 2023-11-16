@@ -219,24 +219,3 @@
   height: 100%;
   object-fit: contain;
 }
-
-.items__user_info_btn > a {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.items__user_info_btn > a > span {
-  font-size: 15px;
-}
-
-.items__user_info_btn > a > .img_container {
-  width: 10px;
-  height: 18px;
-}
-
-.items__user_info_btn > a > .img_container > img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}

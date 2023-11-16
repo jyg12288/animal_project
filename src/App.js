@@ -9,7 +9,7 @@ import Walk from './pages/Walk';
 import Mypage from './pages/Mypage';
 import Community from './pages/Community';
 import Hospital from './pages/Hospital';
-import Navigation from './pages/Navigation';
+import ChangeProfile from './pages/ChangeProfile';
 import WriteCommunity from './pages/WriteCommunity';
 
 function App() {
@@ -56,11 +56,15 @@ function App() {
             element={<Community coord={coord} />}
           />
           <Route path="/hospital" exact element={<Hospital coord={coord} />} />
-          <Route path="/navigation" exact element={<Navigation />} />
+          <Route
+            path="/mypage/changeProfile"
+            exact
+            element={<ChangeProfile />}
+          />
           <Route
             path="/community/writeCommunity"
             exact
-            element={<WriteCommunity coord={coord} />}
+            element={<WriteCommunity />}
           />
         </Routes>
       </BrowserRouter>
