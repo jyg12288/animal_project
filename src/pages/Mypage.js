@@ -91,17 +91,6 @@ function Mypage({ coord }) {
           </article>
           <article className={styles.container__menu_list}>
             <ul className={styles.list__items}>
-              <li className={styles.items__user_info_btn}>
-                <Link to="/mypage/users">
-                  <span>내 정보</span>{" "}
-                  <div className={styles.img_container}>
-                    <img
-                      src="/assets/mypage/더보기 아이콘.png"
-                      alt="more icon"
-                    />
-                  </div>
-                </Link>
-              </li>
               <li className={styles.items__item}>
                 <span>푸시 설정</span>{" "}
                 <div className={styles.img_container}>
