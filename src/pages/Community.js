@@ -160,7 +160,7 @@ function Community({ coord }) {
           })}
         </ol>
         <div className={styles.write_post}>
-          <Link to="/writePost" className={styles.write__link}>
+          <Link to="/community/writeCommunity" className={styles.write__link}>
             <img src="/assets/community/글작성 버튼.png" alt="글작성" />
           </Link>
         </div>
