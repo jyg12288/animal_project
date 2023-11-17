@@ -11,7 +11,10 @@ function Write_Community({ coord }) {
     formState: { isSubmitting, isSubmitted, errors },
   } = useForm();
 
-  const submitForm = (data) => console.log(data);
+  const submitForm = (data) => {
+    console.log(data);
+    navigate('/community');
+  };
 
   const navigate = useNavigate();
 
@@ -33,7 +36,7 @@ function Write_Community({ coord }) {
           <div className={styles.img_container}>
             <img src="/assets/writeCommunity/커뮤니티사진 예시.png" alt="" />
           </div>
-          <div className={styles.input_profile}>
+          <div className={styles.input_img}>
             <label htmlFor="file">
               <img
                 src="/assets/writeCommunity/사진추가.png"

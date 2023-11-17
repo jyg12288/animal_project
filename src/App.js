@@ -11,6 +11,7 @@ import Community from './pages/Community';
 import Hospital from './pages/Hospital';
 import ChangeProfile from './pages/ChangeProfile';
 import WriteCommunity from './pages/WriteCommunity';
+import DogInfo from './pages/DogInfo';
 
 function App() {
   const [coord, setCoord] = useState('');
@@ -66,6 +67,7 @@ function App() {
             exact
             element={<WriteCommunity />}
           />
+          <Route path="/mypage/dogInfo" exact element={<DogInfo />} />
         </Routes>
       </BrowserRouter>
     </div>

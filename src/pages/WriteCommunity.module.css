@@ -57,7 +57,7 @@
   object-fit: contain;
 }
 
-.input_profile {
+.input_img {
   position: absolute;
   display: inline-block;
   left: 20px;
@@ -65,15 +65,15 @@
   margin-top: 14px;
 }
 
-.input_profile > input {
+.input_img > input {
   display: none;
 }
 
-.input_profile > span {
+.input_img > span {
   font-size: 11px;
 }
 
-.input_profile > label {
+.input_img > label {
   display: block;
   margin-bottom: -10px;
 }
@@ -128,7 +128,7 @@
   position: absolute;
   top: 20px;
   right: 16px;
-  font-size: 13px;
+  font-size: 14px;
   border: none;
   background: #fff;
 }
